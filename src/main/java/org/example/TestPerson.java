@@ -6,6 +6,8 @@ import org.hibernate.cfg.Configuration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TestPerson {
@@ -28,12 +30,22 @@ public class TestPerson {
         address.setCountry("India");
         p.setAddress(address);
 
+
+        Person p2 = new Person();
+        try {
+            p2.setDob(new SimpleDateFormat("YYYY-MM-dd").parse("2018-02-02"));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        p2.setName("Ramu");
+
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
         Session session =  factory.openSession();
 
         session.beginTransaction();
         session.save(p);
+        session.save(p2);
         session.getTransaction().commit();
 
         session.close();
