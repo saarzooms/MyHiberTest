@@ -21,6 +21,13 @@ public class TestPerson {
             e.printStackTrace();
         }
 
+        Address address = new Address();
+        address.setStreet("My street");
+        address.setCity("Rajkot");
+        address.setState("Gujarat");
+        address.setCountry("India");
+        p.setAddress(address);
+
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
         Session session =  factory.openSession();

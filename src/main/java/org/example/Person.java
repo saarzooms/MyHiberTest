@@ -18,7 +18,19 @@ public class Person {
     @Column
     private byte[] myImage;
 
+    private Address address;
+
+
+
     public Person() {
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public int getId() {
