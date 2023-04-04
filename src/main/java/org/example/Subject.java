@@ -14,7 +14,7 @@ public class Subject {
     @Column(name="duration", length=10)
     private String duration;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "subjects")
     private List<Student> students;
 
     public List<Student> getStudents() {

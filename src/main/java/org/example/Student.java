@@ -17,6 +17,10 @@ public class Student {
     private String gender;
 
     @ManyToMany
+    @JoinTable(name="stu_sub_mapping",
+            joinColumns = {@JoinColumn(name="sub_id")},
+            inverseJoinColumns = {@JoinColumn(name="stu_id")}
+    )
     private List<Subject> subjects;
 
     public List<Subject> getSubjects() {
