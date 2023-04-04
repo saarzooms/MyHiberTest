@@ -18,8 +18,8 @@ public class Student {
 
     @ManyToMany
     @JoinTable(name="stu_sub_mapping",
-            joinColumns = {@JoinColumn(name="sub_id")},
-            inverseJoinColumns = {@JoinColumn(name="stu_id")}
+            joinColumns = {@JoinColumn(name="stu_id")},
+            inverseJoinColumns = {@JoinColumn(name="sub_id")}
     )
     private List<Subject> subjects;
 
