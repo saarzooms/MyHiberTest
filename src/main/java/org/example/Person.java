@@ -11,9 +11,10 @@ public class Person {
     private int id;
     @Column(name="pname",length = 50)
     private String name;
+    @Temporal(value=TemporalType.DATE)
     @Column(name="dob")
     private Date dob;
-
+    @Lob
     @Column
     private byte[] myImage;
 
